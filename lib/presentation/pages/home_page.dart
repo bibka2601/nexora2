@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nexora/presentation/mobile_screen_folders/screens/admin_login_page.dart';
+import 'package:nexora/presentation/mobile_screen_folders/screens/machine_learning.dart';
 import 'package:video_player/video_player.dart';
-
 import 'package:nexora/data/consts/app_colors.dart';
 import 'package:nexora/presentation/mobile_screen_folders/screens/game_development_page.dart';
 import 'package:nexora/presentation/mobile_screen_folders/screens/mobile_development_page.dart';
@@ -26,9 +27,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-    videoController = VideoPlayerController.asset(
-      'assets/videos/main.mp4',
-    );
+    videoController = VideoPlayerController.asset('assets/videos/main.mp4');
 
     videoController.initialize().then((_) {
       if (mounted) {
@@ -55,29 +54,39 @@ class _HomePageState extends State<HomePage> {
   void _openMobilePage() {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => const MobileDevelopmentPage(),
-      ),
+      MaterialPageRoute(builder: (context) => const MobileDevelopmentPage()),
     );
   }
 
   void _openGamePage() {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => const GameDevelopmentPage(),
-      ),
+      MaterialPageRoute(builder: (context) => const GameDevelopmentPage()),
     );
   }
 
   void _openAboutPage() {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => const AboutPage(),
-      ),
+      MaterialPageRoute(builder: (context) => const AboutPage()),
     );
   }
+
+  void _openMachineLearningPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const MachineLearningPage()),
+    );
+  }
+
+  void _openAdminPage() {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const AdminLoginPage(),
+    ),
+  );
+}
 
   @override
   Widget build(BuildContext context) {
@@ -111,11 +120,7 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.symmetric(horizontal: 35),
       decoration: const BoxDecoration(
         color: Colors.white,
-        border: Border(
-          bottom: BorderSide(
-            color: Color(0xFFEAEAEA),
-          ),
-        ),
+        border: Border(bottom: BorderSide(color: Color(0xFFEAEAEA))),
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -148,51 +153,24 @@ class _HomePageState extends State<HomePage> {
           items: const [
             'Web / Mobile разработка',
             'Разработка игр',
+            'Машинное обучение',
           ],
-          onPressed: [
-            _openMobilePage,
-            _openGamePage,
-          ],
+          onPressed: [_openMobilePage, _openGamePage, _openMachineLearningPage],
         ),
 
         const SizedBox(width: 40),
 
         AnimatedMenu(
           title: 'О нас',
-          items: const [
-            'О нас',
-            'Отзывы наших клиентов',
-          ],
-          onPressed: [
-            _openAboutPage,
-            () {},
-          ],
+          items: const ['О нас'],
+          onPressed: [_openAboutPage, () {}],
         ),
 
         const SizedBox(width: 40),
 
         GestureDetector(
-          onTap: _showContactDialog,
-          child: const Text(
-            'Контакты',
-            style: TextStyle(
-              fontSize: 15,
-            ),
-          ),
-        ),
-
-        const SizedBox(width: 35),
-
-        const Text(
-          'RU',
-          style: TextStyle(
-            fontSize: 15,
-          ),
-        ),
-
-        const Icon(
-          Icons.keyboard_arrow_down,
-          size: 20,
+          onTap: _openAdminPage,
+          child: const Text('Админ', style: TextStyle(fontSize: 15)),
         ),
 
         const SizedBox(width: 25),
@@ -208,12 +186,7 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          child: const Text(
-            'Свяжитесь с нами',
-            style: TextStyle(
-              fontSize: 14,
-            ),
-          ),
+          child: const Text('Свяжитесь с нами', style: TextStyle(fontSize: 14)),
         ),
       ],
     );
@@ -235,28 +208,16 @@ class _HomePageState extends State<HomePage> {
 
         AnimatedMenu(
           title: 'Услуги',
-          items: const [
-            'Web / Mobile разработка',
-            'Разработка игр',
-          ],
-          onPressed: [
-            _openMobilePage,
-            _openGamePage,
-          ],
+          items: const ['Web / Mobile разработка', 'Разработка игр'],
+          onPressed: [_openMobilePage, _openGamePage],
         ),
 
         const SizedBox(width: 20),
 
         AnimatedMenu(
           title: 'О нас',
-          items: const [
-            'О нас',
-            'Отзывы наших клиентов',
-          ],
-          onPressed: [
-            _openAboutPage,
-            () {},
-          ],
+          items: const ['О нас', 'Отзывы наших клиентов'],
+          onPressed: [_openAboutPage, () {}],
         ),
 
         const SizedBox(width: 20),
@@ -272,12 +233,7 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          child: const Text(
-            'Связаться',
-            style: TextStyle(
-              fontSize: 13,
-            ),
-          ),
+          child: const Text('Связаться', style: TextStyle(fontSize: 13)),
         ),
       ],
     );
@@ -286,13 +242,8 @@ class _HomePageState extends State<HomePage> {
   Widget _buildHero() {
     return Container(
       width: double.infinity,
-      constraints: const BoxConstraints(
-        minHeight: 650,
-      ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 60,
-        vertical: 70,
-      ),
+      constraints: const BoxConstraints(minHeight: 650),
+      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 70),
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth < 900) {
@@ -349,12 +300,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-                child: const Text(
-                  'Связаться',
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
+                child: const Text('Связаться', style: TextStyle(fontSize: 16)),
               ),
             ],
           ),
@@ -362,10 +308,7 @@ class _HomePageState extends State<HomePage> {
 
         const SizedBox(width: 50),
 
-        Expanded(
-          flex: 5,
-          child: _buildVideo(),
-        ),
+        Expanded(flex: 5, child: _buildVideo()),
       ],
     );
   }
@@ -390,11 +333,7 @@ class _HomePageState extends State<HomePage> {
           'Разработка сайтов\n'
           'Разработка приложений\n'
           'Разработка игр',
-          style: TextStyle(
-            fontSize: 17,
-            height: 1.7,
-            color: Colors.black54,
-          ),
+          style: TextStyle(fontSize: 17, height: 1.7, color: Colors.black54),
         ),
 
         const SizedBox(height: 30),
@@ -410,12 +349,7 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          child: const Text(
-            'Связаться',
-            style: TextStyle(
-              fontSize: 16,
-            ),
-          ),
+          child: const Text('Связаться', style: TextStyle(fontSize: 16)),
         ),
 
         const SizedBox(height: 45),
@@ -431,9 +365,7 @@ class _HomePageState extends State<HomePage> {
       height: 400,
       decoration: BoxDecoration(
         color: const Color(0xFFF7F7F7),
-        border: Border.all(
-          color: const Color(0xFFE5E5E5),
-        ),
+        border: Border.all(color: const Color(0xFFE5E5E5)),
       ),
       child: videoController.value.isInitialized
           ? ClipRect(
@@ -446,21 +378,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             )
-          : Center(
-              child: CircularProgressIndicator(
-                color: purple,
-              ),
-            ),
+          : Center(child: CircularProgressIndicator(color: purple)),
     );
   }
 
   Widget _buildAboutSection() {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 60,
-        vertical: 100,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 100),
       color: const Color(0xFFF7F7F7),
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -474,10 +399,7 @@ class _HomePageState extends State<HomePage> {
 
                 const Text(
                   'О компании',
-                  style: TextStyle(
-                    fontSize: 44,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(fontSize: 44, fontWeight: FontWeight.w500),
                 ),
 
                 const SizedBox(height: 30),
@@ -490,10 +412,7 @@ class _HomePageState extends State<HomePage> {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: 100,
-                child: _sectionNumber('03'),
-              ),
+              SizedBox(width: 100, child: _sectionNumber('03')),
 
               Expanded(
                 child: Column(
@@ -537,21 +456,14 @@ class _HomePageState extends State<HomePage> {
       'современные цифровые продукты для бизнеса.\n\n'
       'Мы разрабатываем сайты, мобильные приложения '
       'и игры, уделяя внимание дизайну, удобству и качеству.',
-      style: TextStyle(
-        fontSize: 19,
-        height: 1.7,
-        color: Colors.black54,
-      ),
+      style: TextStyle(fontSize: 19, height: 1.7, color: Colors.black54),
     );
   }
 
   Widget _buildContactSection() {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 60,
-        vertical: 100,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 100),
       child: Column(
         children: [
           const Text(
@@ -568,10 +480,7 @@ class _HomePageState extends State<HomePage> {
 
           const Text(
             'Расскажите нам о вашей идее',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black54,
-            ),
+            style: TextStyle(fontSize: 18, color: Colors.black54),
           ),
 
           const SizedBox(height: 35),
@@ -589,9 +498,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: const Text(
               'Связаться с нами',
-              style: TextStyle(
-                fontSize: 16,
-              ),
+              style: TextStyle(fontSize: 16),
             ),
           ),
         ],
