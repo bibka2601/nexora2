@@ -1,0 +1,33 @@
+rules_version = '2';
+
+service cloud.firestore {
+  function isAdmin() {
+    return request.auth != null
+      && request.auth.token.email in ['nexora@gmail.com', 'bibka2601@gmail.com'];
+  }
+
+  match /databases/{database}/documents {
+    match /orders/{orderId} {
+      allow create: if request.resource.data.keys().hasOnly([
+          'services', 'clientType', 'clientName', 'firstName', 'lastName',
+          'companyName', 'phone', 'message', 'status', 'createdAt'
+        ])
+        && request.resource.data.keys().hasAll([
+          'services', 'clientType', 'clientName', 'firstName', 'lastName',
+          'companyName', 'phone', 'message', 'status', 'createdAt'
+        ])
+        && request.resource.data.services is string
+        && request.resource.data.clientType in ['company', 'individual']
+        && request.resource.data.clientName is string
+        && request.resource.data.firstName is string
+        && request.resource.data.lastName is string
+        && request.resource.data.companyName is string
+        && request.resource.data.phone is string
+        && request.resource.data.message is string
+        && request.resource.data.status == 'new'
+        && request.resource.data.createdAt == request.time;
+
+      allow read, update: if isAdmin();
+    }
+  }
+}

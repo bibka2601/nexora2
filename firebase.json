@@ -1,0 +1,62 @@
+{
+	"flutter": {
+		"platforms": {
+			"android": {
+				"default": {
+					"projectId": "nexora-3261b-88f1d",
+					"appId": "1:731248589799:android:23709816d08dcd536a9b42",
+					"fileOutput": "android/app/google-services.json"
+				}
+			},
+			"dart": {
+				"lib/firebase_options.dart": {
+					"projectId": "nexora-3261b-88f1d",
+					"configurations": {
+						"android": "1:731248589799:android:23709816d08dcd536a9b42",
+						"ios": "1:731248589799:ios:184b2b5096beb4546a9b42",
+						"macos": "1:731248589799:ios:184b2b5096beb4546a9b42",
+						"web": "1:731248589799:web:bcaa463be9a874c66a9b42",
+						"windows": "1:731248589799:web:bd1ebffc7dce9fd66a9b42"
+					}
+				}
+			}
+		}
+	},
+	"firestore": {
+		"rules": "firestore.rules"
+	},
+	"hosting": {
+		"site": "nexora-web-731248589799",
+		"public": "build/web",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+		"headers": [
+			{
+				"source": "**/*.mp4",
+				"headers": [
+					{ "key": "Accept-Ranges", "value": "bytes" },
+					{ "key": "Content-Type", "value": "video/mp4" },
+					{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+				]
+			},
+			{
+				"source": "/flutter_bootstrap.js",
+				"headers": [
+					{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+				]
+			},
+			{
+				"source": "/main.dart.js",
+				"headers": [
+					{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+				]
+			},
+			{
+				"source": "/index.html",
+				"headers": [
+					{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+				]
+			}
+		],
+		"rewrites": [{"source": "**", "destination": "/index.html"}]
+	}
+}
