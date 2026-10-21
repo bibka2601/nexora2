@@ -1,69 +1,118 @@
 import 'package:flutter/material.dart';
-import 'package:nexora/presentation/widgets/segment_info.dart';
 
 class TechnologiesSection extends StatelessWidget {
   const TechnologiesSection({super.key});
 
   final List<Map<String, String>> technologies = const [
-    {'name': 'Flutter', 'type': 'Framework'},
-    {'name': 'Dart', 'type': 'Language'},
-    {'name': 'Python', 'type': 'Language'},
-    {'name': 'JavaScript', 'type': 'Language'},
-    {'name': 'React', 'type': 'Framework'},
-    {'name': 'HTML5', 'type': 'Technology'},
-    {'name': 'CSS', 'type': 'Technology'},
-    {'name': 'Firebase', 'type': 'Backend'},
-    {'name': 'PostgreSQL', 'type': 'Database'},
-    {'name': 'GitHub', 'type': 'Tools'},
-    {'name': 'Figma', 'type': 'Design'},
-    {'name': 'Unity', 'type': 'Game Engine'},
+    {
+      'name': 'Flutter',
+      'type': 'Framework',
+    },
+    {
+      'name': 'Dart',
+      'type': 'Language',
+    },
+    {
+      'name': 'Python',
+      'type': 'Language',
+    },
+    {
+      'name': 'JavaScript',
+      'type': 'Language',
+    },
+    {
+      'name': 'React',
+      'type': 'Framework',
+    },
+    {
+      'name': 'HTML5',
+      'type': 'Technology',
+    },
+    {
+      'name': 'CSS',
+      'type': 'Technology',
+    },
+    {
+      'name': 'Firebase',
+      'type': 'Backend',
+    },
+    {
+      'name': 'PostgreSQL',
+      'type': 'Database',
+    },
+    {
+      'name': 'GitHub',
+      'type': 'Tools',
+    },
+    {
+      'name': 'Figma',
+      'type': 'Design',
+    },
+    {
+      'name': 'Unity',
+      'type': 'Game Engine',
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
-    final compact = MediaQuery.sizeOf(context).width < 600;
     return Container(
       width: double.infinity,
-      color: Colors.transparent,
-      padding: EdgeInsets.symmetric(
-        horizontal: compact ? 16 : 60,
-        vertical: compact ? 40 : 80,
+      color: const Color(0xFFF7F7F7),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 60,
+        vertical: 80,
       ),
       child: Container(
         width: double.infinity,
+        padding: const EdgeInsets.all(50),
         decoration: BoxDecoration(
-          border: Border.all(color: const Color(0xFF4412A7)),
+          color: Colors.white,
+          border: Border.all(
+            color: const Color(0xFF4412A7),
+          ),
         ),
-        clipBehavior: Clip.hardEdge,
-        child: Stack(
-          children: [
-            // Фоновая картинка на всю секцию
-            Positioned.fill(
-              child: Image.asset(
-                'assets/images/languege.png',
-                fit: BoxFit.cover,
-                filterQuality: FilterQuality.high,
-              ),
-            ),
-            // Тёмный оверлей
-            Positioned.fill(
-              child: ColoredBox(
-                color: const Color(0xFF0D0520).withValues(alpha: 0.50),
-              ),
-            ),
-            // Контент
-            Padding(
-          padding: EdgeInsets.all(compact ? 20 : 50),
-          child: Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  '02',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFF4412A7),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                Container(
+                  width: 45,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: const Color(0xFF4412A7),
+                    ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.arrow_downward,
+                    color: Color(0xFF4412A7),
+                    size: 20,
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 50),
+
+            const Text(
               'Языки и\nтехнологии',
               style: TextStyle(
-                fontSize: compact ? 34 : 52,
+                fontSize: 52,
                 fontWeight: FontWeight.w500,
                 height: 1.1,
-                color: Colors.white,
               ),
             ),
 
@@ -74,9 +123,9 @@ class TechnologiesSection extends StatelessWidget {
               'фреймворки и инструменты для создания '
               'быстрых и удобных цифровых продуктов.',
               style: TextStyle(
-                fontSize: 19,
+                fontSize: 17,
                 height: 1.6,
-                color: const Color(0xFFE8E8E8),
+                color: Colors.black54,
               ),
             ),
 
@@ -98,7 +147,8 @@ class TechnologiesSection extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: technologies.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate:
+                      SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: columns,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
@@ -115,9 +165,6 @@ class TechnologiesSection extends StatelessWidget {
             ),
           ],
         ),
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -127,35 +174,21 @@ class TechnologyItem extends StatefulWidget {
   final String name;
   final String type;
 
-  const TechnologyItem({super.key, required this.name, required this.type});
+  const TechnologyItem({
+    super.key,
+    required this.name,
+    required this.type,
+  });
 
   @override
   State<TechnologyItem> createState() => _TechnologyItemState();
 }
 
 class _TechnologyItemState extends State<TechnologyItem> {
-  static const _backgroundAssets = <String, String>{
-    'Flutter': 'assets/images/image.png',
-    'Dart': 'assets/images/dart.png',
-    'Python': 'assets/images/pythonphoto.png',
-    'JavaScript': 'assets/images/javascript.png',
-    'React': 'assets/images/reactjs.png',
-    'HTML5': 'assets/images/html5logo.png',
-    'CSS': 'assets/images/csslogo.png',
-    'Firebase': 'assets/images/firebaselogo.png',
-    'PostgreSQL': 'assets/images/postgresqllogo.png',
-    'GitHub': 'assets/images/githublogo.png',
-    'Figma': 'assets/images/figmalogo.png',
-    'Unity': 'assets/images/unitylogo.png',
-  };
-
   bool isHover = false;
 
   @override
   Widget build(BuildContext context) {
-    final backgroundAsset =
-        _backgroundAssets[widget.name] ?? 'assets/images/image.png';
-
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       onEnter: (_) {
@@ -168,78 +201,94 @@ class _TechnologyItemState extends State<TechnologyItem> {
           isHover = false;
         });
       },
-      child: Semantics(
-        button: true,
-        label: '${widget.name}, ${widget.type}',
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () => showSegmentInfo(context, widget.name),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
-            transform: Matrix4.translationValues(0, isHover ? -5 : 0, 0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              image: DecorationImage(
-                image: AssetImage(backgroundAsset),
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
-              ),
-              border: Border.all(color: const Color(0xFFE0E0E0)),
-            ),
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.black.withValues(alpha: isHover ? 0.04 : 0),
-                        Colors.black.withValues(alpha: isHover ? 0.58 : 0.42),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
-                  ),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      widget.type,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 16, bottom: 12),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: AnimatedOpacity(
-                      duration: const Duration(milliseconds: 200),
-                      opacity: isHover ? 1 : 0,
-                      child: const Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        transform: Matrix4.translationValues(
+          0,
+          isHover ? -5 : 0,
+          0,
+        ),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 15,
+        ),
+        decoration: BoxDecoration(
+          color: isHover
+              ? const Color(0xFF4412A7)
+              : Colors.white,
+          border: Border.all(
+            color: const Color(0xFFE0E0E0),
           ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 42,
+              height: 42,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: isHover
+                      ? Colors.white
+                      : const Color(0xFF4412A7),
+                ),
+              ),
+              child: Icon(
+                Icons.code,
+                size: 20,
+                color: isHover
+                    ? Colors.white
+                    : const Color(0xFF4412A7),
+              ),
+            ),
+
+            const SizedBox(width: 15),
+
+            Expanded(
+              child: Column(
+                mainAxisAlignment:
+                    MainAxisAlignment.center,
+                crossAxisAlignment:
+                    CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.name,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: isHover
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                  ),
+
+                  const SizedBox(height: 3),
+
+                  Text(
+                    widget.type,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: isHover
+                          ? Colors.white70
+                          : Colors.black45,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            AnimatedOpacity(
+              duration: const Duration(milliseconds: 200),
+              opacity: isHover ? 1 : 0,
+              child: const Icon(
+                Icons.arrow_forward,
+                color: Colors.white,
+                size: 20,
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
-
-

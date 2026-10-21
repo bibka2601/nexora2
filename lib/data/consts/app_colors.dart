@@ -7,5 +7,3 @@ abstract class AppColors {
   static const grey = Colors.blueGrey;
   static const green = Color.fromARGB(255, 126, 236, 129);
 }
-
-

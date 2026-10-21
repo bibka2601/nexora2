@@ -41,51 +41,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBH7zORnU1b7Sf6IBjQTDs2mF29-8uXNZk',
-    appId: '1:731248589799:web:bcaa463be9a874c66a9b42',
-    messagingSenderId: '731248589799',
-    projectId: 'nexora-3261b-88f1d',
-    authDomain: 'nexora-3261b-88f1d.firebaseapp.com',
-    databaseURL: 'https://nexora-3261b-88f1d-default-rtdb.europe-west1.firebasedatabase.app',
-    storageBucket: 'nexora-3261b-88f1d.firebasestorage.app',
+    apiKey: 'AIzaSyDo5SbuKE6-Y_VAZXqQMdqUPUIVf8-WY64',
+    appId: '1:38022833169:web:1074941173aa7b1522fdb0',
+    messagingSenderId: '38022833169',
+    projectId: 'nexora-3261b',
+    authDomain: 'nexora-3261b.firebaseapp.com',
+    storageBucket: 'nexora-3261b.firebasestorage.app',
+    measurementId: 'G-9MN7ZG7DZS',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBhUmtKW6i-EinG5gHJf6-SrTQjRh1SxMU',
-    appId: '1:731248589799:android:23709816d08dcd536a9b42',
-    messagingSenderId: '731248589799',
-    projectId: 'nexora-3261b-88f1d',
-    databaseURL: 'https://nexora-3261b-88f1d-default-rtdb.europe-west1.firebasedatabase.app',
-    storageBucket: 'nexora-3261b-88f1d.firebasestorage.app',
+    apiKey: 'AIzaSyBROjJ4e-ckAFgR1spqvHgr6qwRnOrbZr0',
+    appId: '1:38022833169:android:147012fd7ee5c34a22fdb0',
+    messagingSenderId: '38022833169',
+    projectId: 'nexora-3261b',
+    storageBucket: 'nexora-3261b.firebasestorage.app',
   );
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDk9V2QVDmAa0XOVU4pi-l4jgxB-6mGyFE',
-    appId: '1:731248589799:ios:184b2b5096beb4546a9b42',
-    messagingSenderId: '731248589799',
-    projectId: 'nexora-3261b-88f1d',
-    databaseURL: 'https://nexora-3261b-88f1d-default-rtdb.europe-west1.firebasedatabase.app',
-    storageBucket: 'nexora-3261b-88f1d.firebasestorage.app',
+    apiKey: 'AIzaSyB8TutcpDIpAjC7su3tjjLu20fPiyCkR38',
+    appId: '1:38022833169:ios:f4bb4903bedc691522fdb0',
+    messagingSenderId: '38022833169',
+    projectId: 'nexora-3261b',
+    storageBucket: 'nexora-3261b.firebasestorage.app',
     iosBundleId: 'com.example.nexora',
   );
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDk9V2QVDmAa0XOVU4pi-l4jgxB-6mGyFE',
-    appId: '1:731248589799:ios:184b2b5096beb4546a9b42',
-    messagingSenderId: '731248589799',
-    projectId: 'nexora-3261b-88f1d',
-    databaseURL: 'https://nexora-3261b-88f1d-default-rtdb.europe-west1.firebasedatabase.app',
-    storageBucket: 'nexora-3261b-88f1d.firebasestorage.app',
+    apiKey: 'AIzaSyB8TutcpDIpAjC7su3tjjLu20fPiyCkR38',
+    appId: '1:38022833169:ios:f4bb4903bedc691522fdb0',
+    messagingSenderId: '38022833169',
+    projectId: 'nexora-3261b',
+    storageBucket: 'nexora-3261b.firebasestorage.app',
     iosBundleId: 'com.example.nexora',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBH7zORnU1b7Sf6IBjQTDs2mF29-8uXNZk',
-    appId: '1:731248589799:web:bd1ebffc7dce9fd66a9b42',
-    messagingSenderId: '731248589799',
-    projectId: 'nexora-3261b-88f1d',
-    authDomain: 'nexora-3261b-88f1d.firebaseapp.com',
-    databaseURL: 'https://nexora-3261b-88f1d-default-rtdb.europe-west1.firebasedatabase.app',
-    storageBucket: 'nexora-3261b-88f1d.firebasestorage.app',
+    apiKey: 'AIzaSyDo5SbuKE6-Y_VAZXqQMdqUPUIVf8-WY64',
+    appId: '1:38022833169:web:c5cb8b8c1c55613122fdb0',
+    messagingSenderId: '38022833169',
+    projectId: 'nexora-3261b',
+    authDomain: 'nexora-3261b.firebaseapp.com',
+    storageBucket: 'nexora-3261b.firebasestorage.app',
+    measurementId: 'G-RD8PKK8FMD',
   );
 }
-
-

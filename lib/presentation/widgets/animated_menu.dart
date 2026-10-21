@@ -56,7 +56,7 @@ class _AnimatedMenuState extends State<AnimatedMenu> {
               child: Text(
                 widget.items[index],
                 style: const TextStyle(
-                  fontSize: 17,
+                  fontSize: 15,
                   color: Colors.black,
                 ),
               ),
@@ -90,7 +90,7 @@ class _AnimatedMenuState extends State<AnimatedMenu> {
             Text(
               widget.title,
               style: const TextStyle(
-                fontSize: 17,
+                fontSize: 15,
               ),
             ),
 
@@ -108,5 +108,3 @@ class _AnimatedMenuState extends State<AnimatedMenu> {
     );
   }
 }
-
-
